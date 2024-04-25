@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;600&display=swap');
+
+body {
+  background: linear-gradient(to right, #3f1f37,#d13282);
+    margin: 0;
+}
+
+.navbar-scrolled {
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    transition: background-color 800ms ease, backdrop-filter 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+
+#logout-btn {
+    margin: 5px 40px 0 0;
+    color: white;
+    cursor: pointer;
+}
+
+#logout-btn:hover {
+    color: #ff0000; 
+}
+
+.navbar-nav a:hover {
+    cursor: pointer; /* Change the cursor to a pointer on hover */
+}
+
+#title{
+    color: white;
+    text-align: center;
+    margin-top: 40px;
+    font-family: "Oswald";
+    font-weight: bold;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    gap: 15px;
+    width: 501px;
+    margin-top: 40px;
+  }
+  
+  .cards .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-direction: column;
+    text-align: center;
+    height: 200px;
+    width: 500px;
+    border-radius: 10px;
+    color: black;
+    cursor: pointer;
+    transition: 400ms;
+    overflow-y: scroll;
+  }
+  
+  .cards .card p.tip {
+    font-size: 1em;
+    font-weight: 700;
+    margin-top: 190px;
+  }
+  
+  .cards .card:hover {
+    transform: scale(1.1, 1.1);
+  }
+  
+  .cards:hover > .card:not(:hover) {
+    filter: blur(10px);
+    transform: scale(0.9, 0.9);
+  }
+
+  .item{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+  }
+
+  .item img{
+    height: 100px;
+    border-radius: 3px;
+  }
+#Name,
+#price,
+#address,
+#phone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.head {
+    font-family: "Oswald";
+    font-weight: bold;
+}
+
+
+  @media (max-width:767px) {
+    .cards {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 350px;
+      }
+      
+      .cards .card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        height: 200px;
+        width: 350px;
+        border-radius: 10px;
+        color: black;
+        cursor: pointer;
+        transition: 400ms;
+      }
+      
+      .cards .card p.tip {
+        font-size: 1em;
+        font-weight: 700;
+      }
+      
+      .cards .card p.second-text {
+        font-size: .7em;
+      }
+      
+      .cards .card:hover {
+        transform: scale(1.1, 1.1);
+      }
+      
+      .cards:hover > .card:not(:hover) {
+        filter: blur(10px);
+        transform: scale(0.9, 0.9);
+      }
+  }

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo 2:400,700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/orders.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- NAVBAR START -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top navbar-scrolled">
+        <div class="container-fluid">
+            <a href="#"><span id="logout-btn" class="material-icons">power_settings_new</span></a>
+            <a class="navbar-brand"><%= user.firstname +" "+ user.lastname %></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse text-center" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li id="home-link" class="nav-item">
+                        <a class="nav-link">Home</a>
+                    </li>
+                    <li id="contact-link" class="nav-item">
+                        <a class="nav-link">Contact</a>
+                    </li>
+                    <li id="about-link" class="nav-item">
+                        <a class="nav-link">Customize</a>
+                    </li>
+                    <li id="orders-link" class="nav-item">
+                        <a class="nav-link active">Orders</a>
+                    </li>
+                    <li id="cart-link" class="nav-item">
+                        <a class="nav-link ">Shopping Cart</a>
+                    </li>
+                    <% if (user.role === 'admin') { %>
+                    <li id="admin-link" class="nav-item">
+                        <a class="nav-link" href="/admin">Admin</a>
+                    </li>
+                    <% } %>
+                </ul>
+              
+            </div>
+        </div>
+    </nav>
+    <!-- NAVBAR END -->
+    <h1 id="title">Order History</h1>
+
+    <div class="cards">
+
+        <% if (orders.length === 0) { %>
+        <p>No orders available.</p>
+        <% } else { %>
+
+        <% for (let i = 0; i < orders.length; i++) { %>
+
+        <div class="card">
+            <p class="tip">Order <%= i+1 %></p>
+
+            <% for (let j = 0; j < orderitems.length; j++) { %>
+
+            <% if (orderitems[j].OrderID === orders[i].OrderID) { %>
+
+            <div class="item">
+
+                <img src="../images/<%= orderitems[j].Name %>.jpeg" alt="">
+                <div class="details">
+                    <div id="Name">
+                        <span class="head">Name:</span>
+                        <span><%= orderitems[j].Name %></span>
+                    </div>
+                    <div id="price">
+                        <span class="head">Price:</span>
+                        <span><%= orderitems[j].Price %>$</span>
+                    </div>
+                    <div id="quantity">
+                        <span class="head">Quantity:</span>
+                        <span><%= orderitems[j].Quantity %></span>
+                    </div>
+                </div>
+            </div>
+
+            <% } %>
+
+            <% } %>
+
+            <div id="total">
+
+                <span class="head">Total:</span>
+                <span><%= orders[i].TotalAmount %>$</span>
+                <br />
+                <span class="head">Ordered In:</span>
+                <span><%= orders[i].OrderDate %></span>
+                <br />
+                <span class="head">Address:</span>
+                <span><%= user.address %></span>
+
+            </div>
+            
+        </div>
+
+        <% } %>
+
+        <% } %>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-e7NofiXb9TCnCFKcJt7N9YObFIVB6hRcm0X7ZR3YYBOL16D1bnbpTHo80z1FCd92" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../scripts/orders.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sulphur Point">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo 2">
+    <link rel="stylesheet" href="../styles/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Login / Register</title>
+</head>
+<body> 
+<div class="glass-effect" id="glassEffect">
+  <h1 id="welcome">welcome</h1>
+
+             <!-- login form start -->
+  <form class="form" id="login-form" action="/login" method="post">
+    <div class="input-con">
+      <label for="login-email">Email</label>
+      <input id="login-email" class="input" type="email" required>
+    </div>
+    <div class="input-con">
+      <label for="login-pass">Password</label>
+      <input id="login-pass" class="input" type="password" required>
+    </div>
+    <button class="BTN" id="btn-login" type="submit">Log In</button>
+  </form>
+             <!-- login form end  -->
+    
+             <p id="no-account">Don't have an account?<a  id="sign-up-button" onclick="toggleSignUpForm()">Sign Up</a></p>
+
+</div>
+
+
+<div id="container">
+
+<h1 id="Sign-Up">Sign Up</h1>
+          <!-- Sign up form start -->
+<form class="form" id="signup-form" action="/register" method="post">
+
+<div class="item item-1">
+  <div class="input-con">
+    <label for="signup-fname">First Name</label>
+    <input id="signup-fname" class="input" type="text" required>
+  </div>
+
+  <div class="input-con">
+    <label for="signup-lname">Last Name</label>
+    <input id="signup-lname" class="input" type="text" required>
+  </div>
+
+
+  <div class="input-con">
+    <label for="signup-email">Email</label>
+    <input id="signup-email" class="input" type="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Enter a valid email address" required>
+  </div>
+</div>
+
+<div class="item item-2">
+  <div class="input-con">
+    <label for="signup-pass">Password</label>
+    <input id="signup-pass" class="input" type="password" required  pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+           title="Password must contain at least 8 characters, one letter, one number, and one special character">
+  </div>
+
+  <div class="input-con">
+    <label for="signup-address">Address</label>
+    <input id="signup-address" class="input" type="text" required>
+  </div>
+  <div class="input-con">
+      <label for="signup-number">Phone</label>
+      <input type="tel" id="signup-number" class="input" name="phoneNumber" pattern="[0-9]{8}" required 
+             title="Please make sure to write the phone number in the correct format. Example: 78123456">
+
+  </div>
+</div>
+
+<button class="BTN" id="btn-register">Register</button>
+
+</form>
+                <!-- Sign up form start -->
+<button class="BTN" id="btn-register">Register</button>
+<button class="BTN" id="btn-back-to-login" onclick="backToLoginForm()">Back to Login</button>
+</div>
+
+  <script src="../scripts/animations.js"></script>
+</body>
+</html>

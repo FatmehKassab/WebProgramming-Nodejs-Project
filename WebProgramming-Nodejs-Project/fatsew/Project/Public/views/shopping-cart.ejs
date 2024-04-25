@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/shopping-cart.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- NAVBAR START -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-scrolled">
+        <div class="container-fluid">
+            <a href="#"><span id="logout-btn" class="material-icons">power_settings_new</span></a>
+            <a class="navbar-brand" href="#"><%= user.firstname +" "+ user.lastname %></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse text-center" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li id="home-link" class="nav-item">
+                        <a class="nav-link">Home</a>
+                    </li>
+                    <li id="contact-link" class="nav-item">
+                        <a class="nav-link">Contact</a>
+                    </li>
+                    <li id="about-link" class="nav-item">
+                        <a class="nav-link" >Customize</a>
+                    </li>
+                    <li id="orders-link" class="nav-item">
+                        <a class="nav-link ">Orders</a>
+                    </li>
+                    <li id="cart-link" class="nav-item">
+                        <a class="nav-link active">Shopping Cart</a>
+                    </li>
+                    <% if (user.role === 'admin') { %>
+                    <li id="admin-link" class="nav-item">
+                        <a class="nav-link" href="/admin">Admin</a>
+                    </li>
+                    <% } %>
+
+                </ul>
+              
+            </div>
+        </div>
+    </nav>
+    <!-- NAVBAR END -->
+
+
+
+    <!-- ITEMS BOUGHT -->
+    <div id="container">
+        <div id="shopping-cart">
+            <div class="shopping-cart-con">
+                <% if (shoppingCart.length === 0) { %>
+                <h1>No items in your shopping cart.</h1>
+                <% } else { %>
+                <% for (let i = 0; i < shoppingCart.length; i++) { %>
+                <div class="card card-<%= i + 1 %>">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="../images/<%= shoppingCart[i].Name.toLowerCase() %>.jpeg" alt="">
+                        
+                            <p class="price"><%= shoppingCart[i].TotalPrice %>$</p>
+                            <p class="name"><%= shoppingCart[i].Name %></p>
+                           
+                        </div>
+                        <div class="card-back">
+                            <p class="card-quantity">Quantity:&nbsp;<span><%= shoppingCart[i].Quantity %></span></p>
+                            <p class="card-description"><%= shoppingCart[i].Description %></p>
+                            <div class="quantity-controls">
+                                <p class="name1"><%= shoppingCart[i].Name %></p>
+                                <button class="quantity-btn-decrease">-</button>
+                                <p class="card-quantity" id="quantity">0</p>
+                                <button class="quantity-btn-increase">+</button>
+                            </div>
+                            <button class="card-btn-add-to-cart" id="remove">Remove Item</button>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+                <% } %>
+            </div>
+        </div>
+
+
+
+        <div id="details">
+            <div id="total">
+                <span class="head">Total:</span>
+                <span id="totalValue">
+                    <% var totalPrice = 0; %>
+                    <% for (var i = 0; i < shoppingCart.length; i++) { %>
+                    <% totalPrice += shoppingCart[i].TotalPrice; %>
+                    <% } %>
+                    <%= totalPrice.toFixed(2) %>
+                </span>
+            </div>
+            <div id="address">
+                <span class="head">Location:</span>
+                <span><%= user.address %></span>
+            </div>
+            <div id="phone">
+                <span class="head">Phone:</span>
+                <span>+961 <%= user.phonenumber %></span>
+            </div>
+            <% if (shoppingCart.length > 0) { %>
+            <button id="btn-submit">Proceed Order</button>
+            <% } %>
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+    <!-- ITEMS BOUGHT -->
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-e7NofiXb9TCnCFKcJt7N9YObFIVB6hRcm0X7ZR3YYBOL16D1bnbpTHo80z1FCd92" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../scripts/shopping-cart.js"></script>
+</body>
+</html>

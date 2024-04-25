@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Admin</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top navbar-scrolled">
+        <div class="container-fluid">
+            <a href="#"><span id="logout-btn" class="material-icons">power_settings_new</span></a>
+            <a class="navbar-brand"><%= user.firstname +" "+ user.lastname %></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse text-center" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li id="home-link" class="nav-item">
+                        <a class="nav-link">Home</a>
+                    </li>
+                    <li id="contact-link" class="nav-item">
+                        <a class="nav-link">Contact</a>
+                    </li>
+                    <li id="about-link" class="nav-item">
+                        <a class="nav-link">Customize</a>
+                    </li>
+                    <li id="orders-link" class="nav-item">
+                        <a class="nav-link">Orders</a>
+                    </li>
+                    <li id="cart-link" class="nav-item">
+                        <a class="nav-link">Shopping Cart</a>
+                    </li>
+                    <li id="admin-link" class="nav-item">
+                        <a class="nav-link active">Admin</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="sidebar">
+        <div class="sidebar-item" id="add-product">Add Product</div>
+        <div class="sidebar-item" id="update-product">Update Product</div>
+    </div>
+
+    <form id="content-1" method="post" action="/admin/insert">
+        <div class="content-items">
+            <div id="category">
+                <label for="choices">Category:</label>
+                <select id="choices" name="choices">
+                    <option value="" disabled selected required>Select an option</option>
+                    <option value="Clothes">Clothes</option>
+                    <option value="Plushies">Plushies</option>
+                    <option value="Accessories">Accessories</option>
+                    <option value="Bags">Bags</option>
+                    <option value="Decoration">Decoration</option>
+                   
+                </select>
+            </div>
+
+            <div class="content-item">
+                <label for="name">Name:</label>
+                <input id="name" type="text" class="input" required>
+            </div>
+        </div>
+
+        <div class="content-items">
+            <div class="content-item">
+                <label for="price">Price:</label>
+                <input id="price" type="text" class="input" required>
+            </div>
+            <div class="content-item">
+                <label for="stock">Stock:</label>
+                <input id="stock" type="text" class="input" required>
+            </div>
+        </div>
+
+        <div class="content-items">
+            <div class="content-item">
+                <label for="description">Description:</label>
+                <input id="description" type="text" class="input" required>
+                
+            </div>
+            <div class="content-item">
+                <label for="image">Image:</label>
+                <input id="image" type="file" accept="image/*" class="input">
+            </div>
+
+        </div>
+
+        <button id="btn-add-product" type="submit">Add Item</button>
+    </form>
+
+    <form id="content-3" method="post" action="admin.html">
+        <div class="content-items">
+            <div id="category">
+                <label for="choices">Category:</label>
+                <select id="choices2" name="choices">
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="Clothes">Clothes</option>
+                    <option value="Plushies">Plushies</option>
+                    <option value="Accessories">Accessories</option>
+                    <option value="Bags">Bags</option>
+                    <option value="Decoration">Decoration</option>
+                </select>
+            </div>
+
+            <div class="content-item">
+                <label for="name">Name of the product you want to update:</label>
+                <select id="name2" name="choices">
+                    <option value="" disabled selected>Select product</option>
+                    <% for (let i = 0; i < products.length; i++) { %>
+                    <option value="<%= products[i].Name %>"><%= products[i].Name %></option>
+                    <% } %>
+                </select>
+            </div>
+        </div>
+
+        <div class="content-items">
+            <div class="content-item">
+                <label for="price">Price:</label>
+                <input id="price2" type="text" class="input">
+            </div>
+            <div class="content-item">
+                <label for="stock">Stock:</label>
+                <input id="stock2" type="text" class="input">
+            </div>
+        </div>
+
+        <div class="content-items">
+            <div class="content-item">
+                <label for="description">Description:</label>
+                <input id="description2" type="text" class="input" >
+            </div>
+            <div class="content-item">
+                <label for="image">Image:</label>
+                <input id="image2" type="file" accept="image/*" class="input">
+            </div>
+
+        </div>
+
+        <button id="btn-add-product" type="submit">Update Item</button>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-e7NofiXb9TCnCFKcJt7N9YObFIVB6hRcm0X7ZR3YYBOL16D1bnbpTHo80z1FCd92" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../scripts/admin.js"></script>
+    <script src="../scripts/adminFunctions.js"></script>
+</body>
+</html>

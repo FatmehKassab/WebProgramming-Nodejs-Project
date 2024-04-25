@@ -1,0 +1,167 @@
+*{
+  box-sizing: border-box;
+}
+
+
+body {
+  margin: 0;
+  background-image: url("../images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  background-repeat: no-repeat;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  height: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+#welcome{
+  font-size: 70px;
+  font-family: "Sulphur Point";
+  color: white;
+}
+
+.form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#login-form{
+  flex-direction: column;
+}
+
+.input-con{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.input-con .input{
+  background-color: transparent;
+  width: 250px;
+  height: 35px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid white;
+  color: white;
+}
+
+.input-con label{
+  color: white;
+  font-family: sans-serif;
+}
+
+.BTN{
+  width: 250px;
+  height: 30px;
+  background-color: transparent;
+  color: white;
+  border-radius: 50px;
+  border: 1px solid white;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.BTN:hover{
+  border: 2px solid white;
+}
+
+#no-account{
+  color: white;
+  font-family: sans-serif;
+}
+
+#container {
+  width: 0;
+  height: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  background-color: #3f1f37;;
+  transition: all 1000ms ease-in-out;
+  text-align: center;
+}
+
+
+#Sign-Up{
+  text-align: center;
+  color: white;
+  font-family: "Sulphur Point";
+  margin-bottom: 60px;
+  display: none;
+}
+#btn-back-to-login {
+  display: none;
+  position: absolute;
+  bottom: 10px; /* Adjust the bottom position as needed */
+  left: 50%; /* Center the button horizontally */
+  transform: translateX(-50%);
+}
+#btn-register {
+  display: none; /* Initially hide the button */
+  position: absolute;
+  bottom: 70px; /* Adjust the bottom position as needed */
+  left: 50%; /* Center the button horizontally */
+  transform: translateX(-50%);
+}
+
+#signup-form{
+  gap: 60px;
+  display: none;
+}
+
+#signup-form.visible {
+  display: flex;
+}
+
+
+.item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#btn-register{
+  margin-bottom: 0;
+  margin-right: 20px;
+}
+
+#sign-up-button {
+    color: #ededed;
+    cursor: pointer;
+    padding: 10px 20px; 
+}
+
+#sign-up-button:hover {
+     color: white;
+  
+}
+
+@media (max-width: 600px) {
+    .glass-effect{
+    width: 90%;
+  }
+
+}

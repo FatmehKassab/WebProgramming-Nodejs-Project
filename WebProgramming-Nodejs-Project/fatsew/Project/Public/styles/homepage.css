@@ -1,0 +1,491 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;600&display=swap');
+
+body {
+    background: linear-gradient(to right, #3f1f37,#d13282);
+    margin: 0;
+}
+
+.navbar-scrolled {
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    transition: background-color 800ms ease, backdrop-filter 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+
+#logout-btn {
+    margin: 5px 40px 0 0;
+    color: white;
+    cursor: pointer;
+}
+
+    #logout-btn:hover {
+        color: #ff0000;
+    }
+
+.navbar-nav a:hover {
+    cursor: pointer; /* Change the cursor to a pointer on hover */
+}
+
+
+#container {
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+
+#welcome-header {
+    font-size: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: "Exo 2";
+}
+
+#welcome-con {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 130px;
+    /* overflow: hidden; Hide overflow to create the slide effect */
+}
+
+#welcome-paragraph {
+    text-align: center;
+    font-size: 24px;
+    white-space: pre-line;
+    word-break: break-all;
+    max-width: 40ch;
+    opacity: 0; /* Initially set opacity to 0 for fadeIn effect */
+    transform: translateY(50px); /* Move the paragraph down */
+    transition: opacity 0.8s ease, transform 0.8s ease; /* Transition properties */
+}
+
+#right-con {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+#right-con #right-con-img {
+    width: 60%;
+    height: 60%;
+    border-radius: 10px;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+#right-con #right-con-btn {
+    position: relative;
+    background-color: transparent;
+    border-radius: 50px;
+    color: white;
+    width: 30%;
+    height: 40px;
+    border: 1px solid white;
+}
+
+    #right-con #right-con-btn:hover {
+        border: 2px solid white;
+    }
+
+#right-con .material-icons {
+    position: absolute;
+    top: 30%;
+    left: 83%;
+    font-size: 17px;
+}
+
+#search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 200px;
+}
+
+#search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
+
+#search-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #fff;
+    outline: none;
+    width: 300px;
+    border-radius: 50px;
+    text-align: center;
+    margin: 50px 0 50px 50px;
+}
+
+#search-btn {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+    #search-btn:hover {
+        background-color: white;
+        color: #000428;
+    }
+
+#history {
+    background-color: #fff;
+    height: auto;
+    width: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    display: none;
+    margin-top: -60px;
+    border-radius: 10px;
+    position: absolute;
+}
+
+.previous-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5vh;
+    transition: all 200ms;
+    padding-top: 5px;
+}
+
+    .previous-search span:hover {
+        cursor: pointer;
+        color: #ff0000;
+    }
+
+    .previous-search:hover {
+        background-color: #004e92;
+        color: white;
+    }
+
+    .previous-search p {
+        margin-top: 5px;
+    }
+
+#Clothes-con,
+#Plushies-con,
+#Accessories-con,
+#Bags-con,
+#Decoration-con{
+    height: auto;
+    width: 100%;
+    background: linear-gradient(to right, #3f1f37,#d13282);
+}
+
+#Clothes-con #Clothes-header,
+#Plushies-con #Plushies-header,
+#Accessories-con #Accessories-header,
+#Bags-con #Bags-header,
+#Decoration-con #Decoration-header
+   {
+        text-align: center;
+        margin-bottom: 50px;
+        color: white;
+        padding: 30px 0 30px 0;
+        font-size: 50px;
+        font-weight: bold;
+        text-decoration: blink;
+        background: linear-gradient(to right, #3f1f37,#d13282);
+    }
+
+#Clothes-items,
+#Plushies-items,
+#Accessories-items,
+#Bags-items,
+#Decoration-items {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    height: 70%;
+    margin: 0 1% 0 1%;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.999s;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    color: #fff;
+    border-radius: 5px;
+    font-size: 24px;
+    transform: rotateY(0deg);
+}
+
+    .card-front img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+        border-radius: 3px;
+    }
+
+    .card-front .name {
+        position: absolute;
+        top: 80%;
+        left: 1%;
+        color: #3f1f37;
+        font-family: "Oswald";
+        font-weight: bold;
+        transform: translateZ(10px);
+    }
+
+    .card-front .price {
+        position: absolute;
+        top: 1%;
+        right: 5%;
+        color: black;
+        /* background-color: white; */
+    }
+
+.card-back {
+    background: linear-gradient(to right, #3f1f37,#d13282);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 5px;
+    justify-content: center;
+    font-size: 24px;
+    transform: rotateY(180deg);
+}
+
+    .card-back .card-stock {
+        font-size: 17px;
+    }
+
+    .card-back .card-description {
+        text-align: center;
+        font-size: 17px;
+        font-family: sans-serif;
+        font-weight: bold;
+    }
+
+    .card-back .card-btn-add-to-cart {
+        background-color: transparent;
+        outline: none;
+        border: 1px solid white;
+        color: white;
+        font-size: 17px;
+        width: 35%;
+        height: 40px;
+        border-radius: 50px;
+        transition: all 250ms ease;
+    }
+
+        .card-back .card-btn-add-to-cart:hover,
+        .card-back .quantity-controls .quantity-btn-decrease:hover,
+        .card-back .quantity-controls .quantity-btn-increase:hover,
+        .card-back .card-btn-notify:hover {
+            color: #3f1f37;
+            background-color: white;
+        }
+
+    .card-back .quantity-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+        .card-back .quantity-controls .quantity-btn-decrease,
+        .card-back .quantity-controls .quantity-btn-increase {
+            border: none;
+            background-color: transparent;
+            color: white;
+            height: 25px;
+            padding-bottom: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 250ms ease;
+        }
+
+    .card-back .card-btn-notify {
+        background-color: transparent;
+        outline: none;
+        border: 1px solid white;
+        color: white;
+        font-size: 15px;
+        width: 35%;
+        height: 30px;
+        border-radius: 50px;
+        transition: all 250ms ease;
+        margin-top: 5px;
+    }
+
+#search-list {
+    list-style-type: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ccc;
+    max-height: 200px; /* Set a maximum height to limit the list's size */
+    overflow-y: auto; /* Add scrollbars if the content overflows */
+    width: 100%;
+}
+
+#search-list.active {
+    visibility: visible; /* Show the list when active class is added */
+    opacity: 1;
+}
+
+#search-list li {
+   margin-right:30px;
+    border-bottom: 1px solid #ddd;
+}
+
+#search-list li:last-child {
+    border-bottom: none;
+}
+
+
+@media (max-width: 1000px) {
+    #container {
+        flex-direction: column;
+        margin-top: 50px;
+    }
+
+    #welcome-con {
+        gap: 10px;
+    }
+
+    #right-con {
+        width: 100%;
+    }
+    #Clothes-items,
+    #Plushies-items,
+    #Accessories-items,
+    #Bags-items,
+    #Decoration-items {
+        flex-direction: column;
+        align-items: center; /* Center items in column layout */
+    }
+
+    .card {
+        margin-bottom: 20px; /* Add some space between cards */
+    }
+
+    #Clothes-con,
+    #Plushies-con,
+    #Accessories-con,
+    #Bags-con,
+    #Decoration-con {
+        height: auto; /* Adjust height to accommodate multiple rows */
+    }
+
+    .card-front img {
+        height: 100%; /* Make the image responsive */
+    }
+}
+
+
+@media (max-width: 767px) {
+    #container {
+        flex-direction: column;
+        margin-top: 50px;
+    }
+
+    #welcome-header {
+        font-size: 70px;
+    }
+
+    #welcome-paragraph {
+        font-size: 17px;
+        max-width: 40ch;
+    }
+
+    #right-con #right-con-img {
+        width: 80%;
+    }
+
+    #Clothes-items,
+    #Plushies-items,
+    #Accessories-items,
+    #Bags-items,
+    #Decoration-items{
+        flex-wrap: wrap; /* Allow items to wrap to the next line */
+        justify-content: center; /* Center items in the column layout */
+    }
+
+    .card {
+        width: 80%; /* Adjust the card width for smaller screens */
+        margin-bottom: 20px; /* Add some space between cards */
+    }
+
+    #Clothes-con,
+    #Plushies-con,
+    #Accessories-con,
+    #Bags-con,
+    #Decoration-con {
+        height: auto; /* Adjust height to accommodate multiple rows */
+    }
+
+    .card-front img {
+        height: 100%; /* Make the image responsive */
+    }
+}
